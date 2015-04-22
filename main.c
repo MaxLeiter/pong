@@ -54,20 +54,25 @@ void do_input() {
 }
 
 void update() {
+	volatile unsigned char _;
 	do_input();
 	ball.x += ball_motion.x;
 	ball.y += ball_motion.y;
 	if (ball.x >= 96 || ball.x <= 0) {
+		if (ball.x >= 96) {
+			left_score++;
+		} else {
+			right_score++;
+		}
 		ball_motion.x = -ball_motion.x;
 	}
 	if (ball.y >= 64 || ball.y <= 0) {
-		if (ball.y >= 64) {
-			right_score++;
-		} else {
-			left_score++;
-		}
 		ball_motion.y = -ball_motion.y;
 	}
+	// Waste cycles TODO: do this better
+	for (_ = 0; _ < 255; ++_);
+	for (_ = 0; _ < 255; ++_);
+	for (_ = 0; _ < 255; ++_);
 }
 
 void main() {
