@@ -1,5 +1,7 @@
 Pong, for KnightOS, written in C.
 
+## Compiling
+
 To compile, install the KnightOS SDK and run:
 
     knightos init
