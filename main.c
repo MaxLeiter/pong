@@ -1,5 +1,6 @@
 #include <knightos/display.h>
 #include <knightos/system.h>
+#include <knightos/keys.h>
 #include <stdint.h>
 #include "sprites.h"
 #include "main.h"
@@ -50,7 +51,15 @@ void draw() {
 }
 
 void do_input() {
-	// TODO
+	unsigned char key = get_key();
+	switch (key) {
+	case KEY_UP:
+		left_paddle.y--;
+		break;
+	case KEY_DOWN:
+		left_paddle.y++;
+		break;
+	}
 }
 
 void update() {
@@ -58,12 +67,12 @@ void update() {
 	do_input();
 	ball.x += ball_motion.x;
 	ball.y += ball_motion.y;
-	if (ball.x >= 96 || ball.x <= 0) {
-		if (ball.x >= 96) {
-			left_score++;
-		} else {
-			right_score++;
-		}
+	if (ball.x >= 96) {
+		left_score++;
+		ball_motion.x = -ball_motion.x;
+	}
+	if (ball.x <= 0) {
+		right_score++;
 		ball_motion.x = -ball_motion.x;
 	}
 	if (ball.y >= 64 || ball.y <= 0) {
