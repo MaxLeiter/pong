@@ -1,5 +1,5 @@
-#ifndef __DRAW_H
-#define __DRAW_H
+#ifndef __PONG_DRAW_H
+#define __PONG_DRAW_H
 
 void draw();
 void draw_actors();

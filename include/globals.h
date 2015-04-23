@@ -1,5 +1,5 @@
-#ifndef __GLOBALS_H
-#define __GLOBALS_H
+#ifndef __PONG_GLOBALS_H
+#define __PONG_GLOBALS_H
 
 #include <knightos/display.h>
 #include <stdint.h>
