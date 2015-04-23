@@ -39,8 +39,12 @@ void draw_actors() {
 }
 
 void draw_score() {
-	draw_char(screen, 1, 0, left_score);
-	draw_char(screen, 96 - (4 * 3), 0, right_score);
+	unsigned char right = 4;
+	if (right_score >= 10) right += 4;
+	if (right_score >= 100) right += 4;
+
+	draw_char(screen, 30, 0, left_score);
+	draw_char(screen, DISPLAY_WIDTH - 30 - right, 0, right_score);
 }
 
 void draw() {
@@ -54,10 +58,14 @@ void do_input() {
 	unsigned char key = get_key();
 	switch (key) {
 	case KEY_UP:
-		left_paddle.y--;
+		if (left_paddle.y > 0) {
+			left_paddle.y--;
+		}
 		break;
 	case KEY_DOWN:
-		left_paddle.y++;
+		if (left_paddle.y < DISPLAY_HEIGHT - paddle_left_height) {
+			left_paddle.y++;
+		}
 		break;
 	}
 }
@@ -67,7 +75,7 @@ void update() {
 	do_input();
 	ball.x += ball_motion.x;
 	ball.y += ball_motion.y;
-	if (ball.x >= 96) {
+	if (ball.x >= 96 - ball_width) {
 		left_score++;
 		ball_motion.x = -ball_motion.x;
 	}
@@ -75,13 +83,10 @@ void update() {
 		right_score++;
 		ball_motion.x = -ball_motion.x;
 	}
-	if (ball.y >= 64 || ball.y <= 0) {
+	if (ball.y >= 64 - ball_height || ball.y <= 0) {
 		ball_motion.y = -ball_motion.y;
 	}
-	// Waste cycles TODO: do this better
-	for (_ = 0; _ < 255; ++_);
-	for (_ = 0; _ < 255; ++_);
-	for (_ = 0; _ < 255; ++_);
+	ksleep(10);
 }
 
 void main() {

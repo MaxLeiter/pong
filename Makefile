@@ -2,12 +2,11 @@ include .knightos/variables.make
 
 HEADERS:=$(wildcard *.h)
 IMAGES:=$(wildcard img/*.png)
-OBJECTS=$(OUT)crt0.o $(patsubst %.c,$(OUT)%.o,$(wildcard *.c))
+OBJECTS=$(OUT)crt0.o $(patsubst src/%.c,$(OUT)src/%.o,$(wildcard src/*.c))
 OBJECTS+=$(patsubst img/%.png,$(OUT)img/%.o, $(IMAGES))
+INCLUDE:=$(INCLUDE) -I include/
 
 ALL_TARGETS:=$(BIN)pong
-
-print-%: ; @echo $*=$($*)
 
 $(OUT)img/%.bin: img/%.png
 	mkdir -p $(OUT)img
