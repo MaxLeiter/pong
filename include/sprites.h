@@ -1,5 +1,5 @@
-#ifndef __SPRITES_H
-#define __SPRITES_H
+#ifndef __PONG_SPRITES_H
+#define __PONG_SPRITES_H
 
 /* These are defined in object files that are created on the fly from the
  * contents of the img directory. */
