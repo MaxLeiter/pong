@@ -3,6 +3,7 @@
 
 #include <knightos/display.h>
 #include <stdint.h>
+#include <stdbool.h>
 
 typedef struct {
 	uint8_t x, y;
@@ -21,5 +22,9 @@ extern coordinates_t right_paddle;
 extern coordinates_t ball;
 
 extern velocity_t ball_motion;
+
+extern bool game_running;
+
+void initialize();
 
 #endif
