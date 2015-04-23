@@ -3,7 +3,7 @@
 This is an example project to demonstrate how KnightOS programs can be written
 in C. It's a work in progress.
 
-![](http://a.pomf.se/pqvege.gif)
+![](http://a.pomf.se/jngdza.gif)
 
 ## Points of Interest
 
