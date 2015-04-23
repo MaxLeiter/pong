@@ -54,6 +54,7 @@ void main() {
 	get_keypad_lock();
 	screen = screen_allocate();
 
+	flush_keys();
 	main_menu();
 
 	initialize();
