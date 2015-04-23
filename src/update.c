@@ -5,7 +5,6 @@
 #include "input.h"
 
 void update() {
-	volatile unsigned char _;
 	do_input();
 	ball.x += ball_motion.x;
 	ball.y += ball_motion.y;
