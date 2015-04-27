@@ -9,15 +9,6 @@
 #include "draw.h"
 #include "update.h"
 
-void draw_highscores() {
-	int i;
-	set_left_margin(28);
-	draw_string(screen, 28, 30, "High Scores");
-	for (i = 36; i < 36 + (3 * 6); i += 6) {
-		draw_string(screen, 28, i, "TODO......0");
-	}
-}
-
 void main_menu() {
 	/* Play a simulated game in the background */
 	unsigned char _;
@@ -29,7 +20,6 @@ void main_menu() {
 		draw_actors();
 		draw_string(screen, 28, 0, "-- Pong --");
 		draw_string(screen, 8, 10, "Press ENTER to begin");
-		draw_highscores();
 		screen_draw(screen);
 		update_ai(&left_paddle);
 		update_ai(&right_paddle);
