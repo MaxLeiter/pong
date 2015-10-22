@@ -6,13 +6,13 @@
 void draw_actors() {
 	draw_sprite(screen,
 		left_paddle.x, left_paddle.y,
-		paddle_left_height, &paddle_left_sprite);
+		paddle_left_height, &paddle_left_sprite, GFX_OR);
 
 	draw_sprite(screen, right_paddle.x, right_paddle.y,
-		paddle_right_height, &paddle_right_sprite);
+		paddle_right_height, &paddle_right_sprite, GFX_OR);
 
 	draw_sprite(screen, ball.x, ball.y,
-		ball_height, &ball_sprite);
+		ball_height, &ball_sprite, GFX_OR);
 }
 
 void draw_score() {
