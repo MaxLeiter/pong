@@ -20,8 +20,8 @@ void draw_score() {
 	if (right_score >= 10) right += 4;
 	if (right_score >= 100) right += 4;
 
-	draw_int(screen, 30, 0, left_score);
-	draw_int(screen, DISPLAY_WIDTH - 30 - right, 0, right_score);
+	draw_byte(screen, 30, 0, left_score);
+	draw_byte(screen, DISPLAY_WIDTH - 30 - right, 0, right_score);
 }
 
 void draw() {
